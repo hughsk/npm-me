@@ -14,7 +14,11 @@ module.exports = function(user, done) {
 
         var versions = Object.keys(data.versions)
         var latest   = versions.sort(function(a, b) {
-          return semver.compare(b, a)
+          try {
+            return semver.compare(b, a)
+          } catch (err) {
+            return -1
+          }
         }).shift()
 
         if (!latest) return next()
