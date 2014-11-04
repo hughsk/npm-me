@@ -15,6 +15,7 @@
     "url": "http://hughsk.io/"
   },
   "dependencies": {
+    "add-commas": "0.0.3",
     "columnify": "~1.2.1",
     "debug": "^2.1.0",
     "map-limit": "0.0.1",
