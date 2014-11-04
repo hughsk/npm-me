@@ -18,7 +18,8 @@
     "debug": "^2.1.0",
     "map-limit": "0.0.1",
     "npm-stats": "^1.0.1",
-    "request": "^2.47.0"
+    "request": "^2.47.0",
+    "semver": "^4.1.0"
   },
   "devDependencies": {},
   "repository": {
