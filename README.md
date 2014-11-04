@@ -4,7 +4,7 @@
 ![](http://img.shields.io/npm/dm/npm-me.svg?style=flat)
 ![](http://img.shields.io/npm/l/npm-me.svg?style=flat)
 
-Get a list of download counts over the last month for a particular user's dependencies.
+Get a list of download counts over the last month for a particular user's packages.
 
 ## Usage
 
