@@ -24,12 +24,6 @@ require('./')(process.argv[2], function(err, downloads) {
     return Math.max(max, dl.count)
   }, 0)
 
-  var stats = columnify([
-      {name: 'Total', value: total}
-    , {name: 'Max', value: max}
-  ], {showHeaders: false})
-
   console.log()
-  console.log('SUMMARY')
-  console.log(stats)
+  console.log('Total ', total)
 })
