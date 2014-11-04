@@ -23,6 +23,35 @@ Given an npm `username`, return an array of `packages`, where each has:
 * `name`: the package name.
 * `count`: the number of downloads in the last month for that package.
 
+## Abridged Example
+
+```
+> npm-me maxogden
+NAME                             COUNT
+gst                                 10
+json2pg                             12
+install-nginx-on-ubuntu             12
+nextbus-live-feed                   12
+dat-json-replicator                 12
+dat-google-storage                  13
+...
+binary-split                     1,207
+github-oauth                     1,657
+ldjson-stream                    1,696
+stenographer                     1,933
+cool-ascii-faces                 2,396
+dat                              2,503
+websocket-stream                 4,369
+level-js                         7,687
+html                             8,064
+component-type                  18,299
+browser-request                 61,744
+browserify                     600,651
+concat-stream                  717,990
+
+Total  1,462,080
+```
+
 ## License
 
 MIT. See [LICENSE.md](http://github.com/hughsk/npm-me/blob/master/LICENSE.md) for details.
