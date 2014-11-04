@@ -1,6 +1,6 @@
 {
   "name": "npm-me",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get a list of download counts over the last month for a particular user's packages",
   "main": "index.js",
   "license": "MIT",
