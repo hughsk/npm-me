@@ -1,8 +1,8 @@
-var debug   = require('debug')('npm-me')
-var stats   = require('npm-stats')()
-var map     = require('map-limit')
-var request = require('request')
+var debug  = require('debug')('npm-me')
+var stats  = require('npm-stats')()
+var map    = require('map-limit')
 var semver = require('semver')
+var got    = require('got')
 
 module.exports = function(user, done) {
   stats.user(user).list(function(err, list) {
@@ -30,7 +30,7 @@ module.exports = function(user, done) {
         if (!lastPublisher && !firstPublisher) return next()
 
         debug(pkg)
-        request.get('http://api.npmjs.org/downloads/point/last-month/' + pkg, function(err, res, body) {
+        got('http://api.npmjs.org/downloads/point/last-month/' + pkg, function(err, body) {
           if (err) return next(err)
 
           next(null, {
