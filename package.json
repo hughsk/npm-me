@@ -4,6 +4,10 @@
   "description": "Get a list of download counts over the last month for a particular user's dependencies",
   "main": "index.js",
   "license": "MIT",
+  "bin": {
+    "npm-me": "cli.js",
+    "npmme": "cli.js"
+  },
   "scripts": {},
   "author": {
     "name": "Hugh Kennedy",
