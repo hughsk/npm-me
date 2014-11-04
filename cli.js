@@ -5,25 +5,31 @@ if (!process.argv[2]) return console.error(
 )
 
 var columnify = require('columnify')
+var addCommas = require('add-commas');
 
 require('./')(process.argv[2], function(err, downloads) {
   if (err) throw err
   downloads = downloads
   .filter(Boolean)
+  .map(function(dl) {
+    dl.count = Number(dl.count)
+    return dl
+  })
   .sort(function(a, b) {
     return a.count - b.count
   })
 
-  console.log(columnify(downloads))
+  console.log(columnify(downloads.map(function(dl) {
+    return {
+      name: dl.name
+     , count: addCommas(dl.count)
+    }
+  })))
 
   var total = downloads.reduce(function(total, dl) {
     return total + dl.count
   }, 0)
 
-  var max = downloads.reduce(function(max, dl) {
-    return Math.max(max, dl.count)
-  }, 0)
-
   console.log()
-  console.log('Total ', total)
+  console.log('Total ', addCommas(total))
 })
