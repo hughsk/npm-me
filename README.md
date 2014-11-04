@@ -6,10 +6,15 @@
 
 Get a list of download counts over the last month for a particular user's packages.
 
+## Install
+``` bash
+$ npm install --global npm-me
+```
+
 ## Usage
 
 ``` bash
-npm-me <username>
+$ npm-me <username>
 ```
 
 ## API
