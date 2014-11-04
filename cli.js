@@ -24,16 +24,9 @@ require('./')(process.argv[2], function(err, downloads) {
     return Math.max(max, dl.count)
   }, 0)
 
-  var min = downloads.reduce(function(min, dl) {
-    return Math.min(min, dl.count)
-  }, 0)
-
-  var avg = Math.round((max - min) / downloads.length)
   var stats = columnify([
       {name: 'Total', value: total}
     , {name: 'Max', value: max}
-    , {name: 'Min', value: min}
-    , {name: 'Avg', value: avg}
   ], {showHeaders: false})
 
   console.log()
