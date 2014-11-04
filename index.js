@@ -2,6 +2,7 @@ var debug   = require('debug')('npm-me')
 var stats   = require('npm-stats')()
 var map     = require('map-limit')
 var request = require('request')
+var semver = require('semver')
 
 module.exports = function(user, done) {
   stats.user(user).list(function(err, list) {
@@ -13,10 +14,7 @@ module.exports = function(user, done) {
 
         var versions = Object.keys(data.versions)
         var latest   = versions.sort(function(a, b) {
-          return (
-              (+new Date(data.time[b]))
-            - (+new Date(data.time[a]))
-          )
+          return semver.compare(b, a)
         }).shift()
 
         if (!latest) return next()
