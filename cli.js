@@ -24,7 +24,7 @@ require('./')(process.argv[2], function(err, downloads) {
       name: dl.name
      , count: addCommas(dl.count)
     }
-  })))
+  }), {config: {count: {align: 'right'}}}))
 
   var total = downloads.reduce(function(total, dl) {
     return total + dl.count
