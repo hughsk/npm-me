@@ -1,0 +1,36 @@
+{
+  "name": "npm-me",
+  "version": "1.0.0",
+  "description": "Get a list of download counts over the last month for a particular user's dependencies",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {},
+  "author": {
+    "name": "Hugh Kennedy",
+    "email": "hughskennedy@gmail.com",
+    "url": "http://hughsk.io/"
+  },
+  "dependencies": {
+    "debug": "^2.1.0",
+    "map-limit": "0.0.1",
+    "npm-stats": "^1.0.1",
+    "request": "^2.47.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughsk/npm-me.git"
+  },
+  "keywords": [
+    "npm",
+    "me",
+    "downloads",
+    "count",
+    "ranking",
+    "ego"
+  ],
+  "homepage": "https://github.com/hughsk/npm-me",
+  "bugs": {
+    "url": "https://github.com/hughsk/npm-me/issues"
+  }
+}
