@@ -18,7 +18,7 @@ require('./')(process.argv[2], function(err, downloads) {
   .sort(function(a, b) {
     return a.count - b.count
   })
-
+  console.log()
   console.log(columnify(downloads.map(function(dl) {
     return {
       name: dl.name
