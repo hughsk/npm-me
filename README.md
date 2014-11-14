@@ -9,24 +9,31 @@ Get a list of download counts over the last month for a particular user's packag
 ## Usage
 
 ``` bash
-npm-me <username>
+$ npm-me <username> # For a the list.
+
+$ npm-me -p <packagename> # For the count. 
 ```
 
 ## API
 
 [![NPM](https://nodei.co/npm/npm-me.png)](https://nodei.co/npm/npm-me/)
 
-### `npmme(username, done(err, packages))`
+### `npmme({'user':username}, done(err, packages))`
 
 Given an npm `username`, return an array of `packages`, where each has:
 
 * `name`: the package name.
 * `count`: the number of downloads in the last month for that package.
 
+### `npmme({'package':packagename}, done(err, packages))`
+
+Given an npm `packagename`, return an integer value, that being the download count.
+
 ## Abridged Example
 
 ```
 > npm-me maxogden
+
 NAME                             COUNT
 gst                                 10
 json2pg                             12
@@ -50,6 +57,13 @@ browserify                     600,651
 concat-stream                  717,990
 
 Total  1,462,080
+```
+
+```
+> npm-me -p yo
+
+yo was downloaded 3401 times, last month.
+
 ```
 
 ## License
