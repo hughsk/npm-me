@@ -46,3 +46,10 @@ module.exports = function(user, done) {
     }, done)
   })
 }
+
+module.exports.pkg = function(name, done) {
+  got('http://api.npmjs.org/downloads/point/last-month/' + name, function(err, body) {
+    if (err) return done(err)
+    done(null, JSON.parse(body).downloads)
+  })
+}

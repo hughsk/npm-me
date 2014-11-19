@@ -1,13 +1,26 @@
 #!/usr/bin/env node
 
-if (!process.argv[2]) return console.error(
-  'Usage: npm-me <username>'
-)
-
+var addCommas = require('add-commas')
 var columnify = require('columnify')
-var addCommas = require('add-commas');
+var minimist  = require('minimist')
+var npmme     = require('./')
 
-require('./')(process.argv[2], function(err, downloads) {
+var argv = minimist(process.argv.slice(2), { boolean: 'p' })
+if (!argv._[0]) return console.error([
+    'Usage:'
+  , '  npm-me <username>'
+  , '  npm-me -p <package>'
+].join('\n'))
+
+// Individal package download counts
+if (argv.p) return npmme.pkg(argv._[0], function(err, count) {
+  console.log()
+  console.log(argv._[0] + ' ' + addCommas(count))
+  console.log()
+})
+
+// Username package download counts
+npmme(argv._[0], function(err, downloads) {
   if (err) throw err
   downloads = downloads
   .filter(Boolean)
