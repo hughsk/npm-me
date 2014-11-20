@@ -10,7 +10,7 @@ Get a list of download counts over the last month for a particular user's packag
 
 ``` bash
 npm-me <username>
-npm-me -r <package>
+npm-me -p <package>
 ```
 
 ## API
