@@ -25,7 +25,7 @@ npmme(argv._[0], function(err, downloads) {
   downloads = downloads
   .filter(Boolean)
   .map(function(dl) {
-    dl.count = Number(dl.count)
+    dl.count = Number(dl.count) || 0
     return dl
   })
   .sort(function(a, b) {
