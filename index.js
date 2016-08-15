@@ -34,22 +34,23 @@ module.exports = function(user, done) {
         if (!lastPublisher && !firstPublisher) return next()
 
         debug(pkg)
-        got('http://api.npmjs.org/downloads/point/last-month/' + pkg, function(err, body) {
-          if (err) return next(err)
-
-          next(null, {
-              name: pkg
-            , count: JSON.parse(body).downloads
+        got('http://api.npmjs.org/downloads/point/last-month/' + pkg)
+          .then(function(response) {
+            next(null, {
+                name: pkg
+              , count: JSON.parse(response.body).downloads
+            });
           })
-        })
+          .catch(next);
       })
     }, done)
   })
 }
 
 module.exports.pkg = function(name, done) {
-  got('http://api.npmjs.org/downloads/point/last-month/' + name, function(err, body) {
-    if (err) return done(err)
-    done(null, JSON.parse(body).downloads)
-  })
+  got('http://api.npmjs.org/downloads/point/last-month/' + name)
+    .then(function(response) {
+      done(null, JSON.parse(response.body).downloads);
+    })
+    .catch(done);
 }
